@@ -1,0 +1,18 @@
+{
+    "name": "",
+    "type": "asset",
+    "roots": [],
+    "includes": [],
+    "excludes": [
+        "Temp/",
+        "External/"
+    ],
+    "options": {
+        "disabled": false,
+        "types": true,
+        "properties": true,
+        "extended": false,
+        "dependencies": false
+    },
+    "baseScore": 100
+}

@@ -1,0 +1,31 @@
+﻿#ifndef #SCRIPTNAME#
+#define #SCRIPTNAME#
+
+#include "Assets\RenLib\Graphic\ShaderLib\Math.hlsl"
+#include "Assets\RenLib\Graphic\ShaderLib\Core.hlsl"
+
+CBUFFER_START(UnityPerMaterial)
+float _Frequency;
+CBUFFER_END
+
+struct v2f
+{
+	float4 posCS : SV_POSITION;
+	float3 posWS : TEXCOORD1;
+};
+			
+v2f Vert(a2v_Full i)
+{
+	v2f o;
+    o.posCS = ObjectToHClip(i.posOS);
+	o.posWS = ObjectToWorld(i.posOS);
+    return o;
+}
+			
+float4 Frag(v2f i) : SV_Target
+{
+	half n = PerlinNoise_3D(i.posWS * _Frequency);
+	return half4(n.rrr, 1);
+}
+
+#endif

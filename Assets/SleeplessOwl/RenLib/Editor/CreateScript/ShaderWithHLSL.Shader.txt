@@ -1,0 +1,21 @@
+﻿Shader "#RenLib NewShader/#SCRIPTNAME#"
+{
+	Properties
+	{
+		_Frequency("Frequency", Float) = 2.0
+	}
+	SubShader
+	{
+		Tags { "RenderType"="Opaque" }
+		Pass
+		{
+			HLSLPROGRAM
+			
+			#include "#SCRIPTNAME#.hlsl"
+			#pragma vertex Vert
+			#pragma fragment Frag
+
+			ENDHLSL
+		}
+	}
+}

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3bd3e5b3a04174d8df40dd407cf948, type: 3}
+  m_Name: Noise Settings
+  m_EditorClassIdentifier: 
+  transformSettings:
+    translation: {x: 2.7401426, y: 0, z: 0.10094765}
+    scale: {x: 3, y: 3, z: 3}
+    rotation: {x: 0, y: 44.47, z: 0}
+    flipScaleX: 0
+    flipScaleY: 0
+    flipScaleZ: 0
+  domainSettings:
+    noiseTypeName: Value
+    fractalTypeName: Fbm
+    noiseTypeParams: 
+    fractalTypeParams: '{"warpOffsets":{"x":-6.449999809265137,"y":1.399999976158142,"z":3.200000047683716,"w":2.700000047683716},"octavesMinMax":{"x":0.0,"y":16.0},"amplitudeMinMax":{"x":0.0,"y":1.0},"frequencyMinMax":{"x":0.0,"y":2.0},"lacunarityMinMax":{"x":0.0,"y":4.0},"persistenceMinMax":{"x":0.0,"y":1.0},"warpIterationsMinMax":{"x":0.0,"y":8.0},"warpStrengthMinMax":{"x":-2.0,"y":2.0},"octaves":3.0999999046325685,"amplitude":0.4090000092983246,"frequency":1.0,"persistence":0.42500001192092898,"lacunarity":3.119999885559082,"warpIterations":3.009999990463257,"warpStrength":1.409999966621399,"warpEnabled":true,"warpExpanded":true}'
+  useTextureForPositions: 0
+  positionTexture: {fileID: 0}

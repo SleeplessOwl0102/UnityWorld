@@ -1,0 +1,18 @@
+{
+    "name": "RL.EditorCore",
+    "rootNamespace": "RL.EditorCore",
+    "references": [
+        "GUID:bdc912b4f2a04452ba5a2e95989730a0"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

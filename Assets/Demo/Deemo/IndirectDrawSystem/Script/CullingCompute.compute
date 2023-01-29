@@ -1,0 +1,98 @@
+﻿#pragma kernel CSMain
+
+#ifdef HLSL_EDITOR_ONLY
+#define INDIREDCT_DRAWING_LOD 1
+#define DEPTH_CULLING 1
+#endif
+
+//Matrix4x4 v = Camera.main.worldToCameraMatrix;
+//Matrix4x4 p = Camera.main.projectionMatrix; //unity C# use opengl standard projection matrix
+//cullingComputeShader.SetMatrix("_VPMatrix", p * v); //set from C#
+float4x4 _VPMatrix;
+float _MaxDrawDistance;
+uint _StartOffset;
+uint _MaxIndex;
+StructuredBuffer<float3> _AllInstancesPosWSBuffer; //will not change until instance count change
+AppendStructuredBuffer<uint> _VisibleInstancesIDBuffer; 
+
+float _FadeRange1;
+
+
+#if INDIREDCT_DRAWING_LOD
+
+AppendStructuredBuffer<uint> _VisibleInstancesIDBuffer_Lod;
+float _LodThreshhold;
+float _FadeRange2;
+#endif
+
+//will set counter to 0 per frame, then fill in by this compute shader
+
+#pragma multi_compile __ INDIREDCT_DRAWING_LOD
+#pragma multi_compile __ DEPTH_CULLING
+
+
+#if DEPTH_CULLING
+
+float4 _ScreenParams, _ZBufferParams;
+Texture2D<float> _DepthTexture;
+
+float LinearEyeDepth(float depth, float4 zBufferParam)
+{
+	return 1.0 / (zBufferParam.z * depth + zBufferParam.w);
+}
+
+#endif
+
+float nrand(float2 uv)
+{
+	return frac(sin(dot(uv, float2(12.9898, 78.233))) * 43758.5453);
+}
+
+[numthreads(64,1,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+	uint index = id.x + _StartOffset;
+	float3 posWS = _AllInstancesPosWSBuffer[index];
+	float4 posCS = mul(_VPMatrix, float4(posWS, 1.0));
+	float4 absCS = abs(posCS);
+	float rand = nrand(posWS.xz);
+
+	
+	//do culling test in clip space, result is the same as doing test in NDC space.
+	//prefer clip space here because doing culling test in clip space is faster than doing culling test in NDC
+	//, because we can skip 1 division.
+	//the test is using OpenGL standard projection matrix, because all matrix from unity C# is OpenGL standard
+	//if instance is inside camera frustum, and is within draw distance, we append it to _VisibleInstanceOnlyTransformBuffer
+	//y test allow 50% more threshold (hardcode for grass)
+	//x test allow 10% more threshold (hardcode for grass)
+	if (absCS.z > absCS.w 
+		|| absCS.y > absCS.w * 1.5
+		|| absCS.x > absCS.w * 1.1
+		|| absCS.w > _MaxDrawDistance - rand * _FadeRange1 
+		|| index >= _MaxIndex)
+	{
+		return;
+	}
+	
+#if DEPTH_CULLING
+	// avoid occlusion wrong
+	posCS.y += .5;
+	float2 screenPos = posCS.xyz / posCS.w;
+	screenPos += 1;
+	screenPos *= .5;
+	screenPos *= _ScreenParams.xy;
+	float depth = _DepthTexture[screenPos].r;
+	depth = LinearEyeDepth(depth, _ZBufferParams);
+	if (posCS.z - depth > 5)
+		return;
+#endif
+
+#if INDIREDCT_DRAWING_LOD
+	if (absCS.w > _MaxDrawDistance * _LodThreshhold - rand * _FadeRange2)
+	{
+		_VisibleInstancesIDBuffer_Lod.Append(id.x + _StartOffset);
+		return;
+	}
+#endif	
+	_VisibleInstancesIDBuffer.Append(id.x + _StartOffset);
+}
