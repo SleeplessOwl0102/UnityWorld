@@ -1,5 +1,4 @@
-﻿#if UNITY_EDITOR
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEditor.ShortcutManagement;
 using UnityEngine;
 
@@ -25,4 +24,3 @@ namespace RenLai.IndirectDraw
         }
     }
 }
-#endif
