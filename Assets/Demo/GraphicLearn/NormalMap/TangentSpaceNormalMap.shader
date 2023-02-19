@@ -27,7 +27,7 @@
     
     #define REN_LIGHTING
     #define _NORMALMAP
-    #include "Packages/RenLib/ShaderLib/Core.hlsl"
+    #include "Assets/SleeplessOwl/RenLib/ShaderLib/Core.hlsl"
     
     sampler2D _MainTex;
     float4 _MainTex_ST;

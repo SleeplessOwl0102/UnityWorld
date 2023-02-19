@@ -12,8 +12,8 @@
 			#pragma vertex vert
 			#pragma fragment frag
 
-			#include "Packages/RenLib/ShaderLib/Core.hlsl"
-			#include "Packages/RenLib/ShaderLib/Noise.hlsl"
+			#include "Assets/SleeplessOwl/RenLib/ShaderLib/Core.hlsl"
+			#include "Assets/SleeplessOwl/RenLib/ShaderLib/Noise.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
 
 			struct v2f

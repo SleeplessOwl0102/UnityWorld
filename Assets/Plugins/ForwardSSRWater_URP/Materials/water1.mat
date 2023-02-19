@@ -2,20 +2,25 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: water1
   m_Shader: {fileID: 4800000, guid: 388eebb4dcdd667488cf5cbae2859247, type: 3}
-  m_ShaderKeywords: _BGWATER_SSR_ON
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _BGWATER_SSR_ON
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -63,8 +68,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 4457dafb0271e844095acf636990e620, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _BGWATER_DISNEY_DIFFUSE: 0
+    - _BGWATER_ORTHO: 0
     - _BGWATER_SSR: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -104,3 +111,4 @@ Material:
     - _ThirdWaveTilingOffset: {r: 5, g: 5, b: 5, a: -5}
     - _WaterBaseColor: {r: 0.18916874, g: 0.30658773, b: 0.3679245, a: 1}
     - _WaterMuddyColor: {r: 0.089444645, g: 0.17580855, b: 0.2830189, a: 1}
+  m_BuildTextureStacks: []

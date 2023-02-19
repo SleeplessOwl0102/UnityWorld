@@ -27,7 +27,6 @@ MonoBehaviour:
   m_Name: FogVolume
   m_EditorClassIdentifier: 
   active: 1
-  m_AdvancedMode: 0
   Active:
     m_OverrideState: 1
     m_Value: 1
