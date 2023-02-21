@@ -34,6 +34,23 @@ namespace Ren
         public float lod_FadeRange = 50;
         public Material lod_Material;
         public Mesh lod_Mesh;
+        
+        public bool CheckData()
+        {
+            if (mesh == null)
+                return false;
+
+            if (material == null)
+                return false;
+
+            if (visibleDistance <= 0)
+                return false;
+
+            if (quadCellPos == null)
+                return false;
+
+            return true;
+        }
 
     }
 

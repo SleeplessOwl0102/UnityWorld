@@ -1,3 +1,4 @@
+using System;
 using RenLai.IndirectDraw;
 using Ren;
 using UnityEngine;
@@ -9,14 +10,23 @@ public class IndirectSetter : MonoBehaviour
 
     private void Update()
     {
-        if (IndirectDrawRenderPass.renderDatas == null)
-            IndirectDrawRenderPass.renderDatas = data.instanceRenderSetting;
+        var system = IndirectDrawRenderPass.Instance;
+
+        if (system.RenderCount == 0)
+        {
+            foreach (var item in data.instanceRenderSetting)
+            {
+                system.Add(item);
+            }
+        }
     }
 
     private void OnDisable()
     {
-        IndirectDrawRenderPass.renderDatas = null;
+        var system = IndirectDrawRenderPass.Instance;
+        foreach (var item in data.instanceRenderSetting)
+        {
+            system.Remove(item.description);
+        }
     }
-
-
 }

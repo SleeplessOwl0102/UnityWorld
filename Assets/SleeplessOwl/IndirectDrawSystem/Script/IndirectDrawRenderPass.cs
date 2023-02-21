@@ -11,23 +11,83 @@ namespace RenLai.IndirectDraw
         public const string IndirectDrawLod = "INDIREDCT_DRAWING_LOD";
         public const string DepthCulling = "DEPTH_CULLING";
     }
-
-
-    public class IndirectDrawRenderPass : ScriptableRenderPass
+    
+    public interface IIndirectDrawSystrem
     {
+        public void Add(InstanceRenderSetting data);
+
+        public void Remove(string name);
+
+
+        public int RenderCount { get; }
+    }
+
+
+
+    public class IndirectDrawRenderPass : ScriptableRenderPass, IIndirectDrawSystrem
+    {
+        
+        #region IIndirectDrawSystrem
+
+        public static IIndirectDrawSystrem Instance;
+
+        void IIndirectDrawSystrem.Add(InstanceRenderSetting data)
+        {
+            if (cachBufferData.Contains(data))
+                return;
+
+            cachBufferData.Add(data);
+        }
+
+        void IIndirectDrawSystrem.Remove(string name)
+        {
+            var target = cachBufferData.Find(x => x.description == name);
+            if (target == null)
+                return;
+
+            if (BufferCaches.ContainsKey(target))
+            {
+                var item = BufferCaches[target];
+                if (item.allInstancesPosWSBuffer != null)
+                    item.allInstancesPosWSBuffer.Release();
+
+                if (item.visibleInstancesOnlyPosWSIDBuffer != null)
+                    item.visibleInstancesOnlyPosWSIDBuffer.Release();
+
+                if (item.argsBuffer != null)
+                    item.argsBuffer.Release();
+
+                item.allInstancesPosWSBuffer = null;
+                item.visibleInstancesOnlyPosWSIDBuffer = null;
+                item.argsBuffer = null;
+
+                BufferCaches.Remove(target);
+            }
+
+            cachBufferData.Remove(target);
+        }
+
+        public int RenderCount => cachBufferData.Count;
+
+        #endregion
+        
+        
         public static bool ForceRefresh = false;
         public static bool ForceDisable = false;
 
-        public static List<InstanceRenderSetting> renderDatas;
         private string displayName;
 
         private ComputeShader cullingComputeShader;
 
         private IndirectDrawRendererFeature config;
         public List<InstanceRenderSetting> cachBufferData;
+        
+        public Dictionary<InstanceRenderSetting, BuffersCache> BufferCaches = new Dictionary<InstanceRenderSetting, BuffersCache>();
 
+        
         public IndirectDrawRenderPass(IndirectDrawRendererFeature obj)
         {
+            Instance = this;
             cachBufferData = new List<InstanceRenderSetting>();
 
             config = obj;
@@ -68,9 +128,6 @@ namespace RenLai.IndirectDraw
 
             BufferCaches.Clear();
         }
-
-        public Dictionary<InstanceRenderSetting, BuffersCache> BufferCaches = new Dictionary<InstanceRenderSetting, BuffersCache>();
-
 
         public class BuffersCache
         {
@@ -308,24 +365,38 @@ namespace RenLai.IndirectDraw
             bool isSceneView = renderingData.cameraData.isSceneViewCamera;
             bool isMainCamera = renderingData.cameraData.camera == Camera.main;
 
-            if (ForceDisable)
-                return;
 
             if (isSceneView == false && isMainCamera == false)
                 return;
-
-            if (renderDatas == null)
+            
+            if (ForceDisable)
+                return;
+            
+            if (cachBufferData == null)
                 return;
 
             CommandBuffer cb = CommandBufferPool.Get();
-
-            foreach (var item in renderDatas)
+            foreach (var renderData in cachBufferData)
             {
-                if (item.enable == false)
+                if (renderData is null)
+                {
+                    Debug.Log($"renderData 为空");
                     continue;
+                }
+
+                if (renderData.CheckData() == false)
+                {
+                    Debug.Log($"renderData {renderData.description} 数据不完整");
+                    continue;
+                }
+
+                if (renderData.enable == false)
+                {
+                    continue;
+                }
 
                 cb.name = displayName;
-                RenderPerIndirectData(cb, item, ref renderingData);
+                RenderPerIndirectData(cb, renderData, ref renderingData);
             }
             ForceRefresh = false;
             cb.SetRenderTarget(renderingData.cameraData.renderer.cameraColorTargetHandle);
@@ -334,5 +405,6 @@ namespace RenLai.IndirectDraw
 
             CommandBufferPool.Release(cb);
         }
+
     }
 }
