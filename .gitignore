@@ -7,3 +7,13 @@ Temp/
 Library/
 Logs/
 Packages/com.renlai.renlib@be479858cc95366d7f094f5d185c8b184afef909/
+Packages/com.unity.render-pipelines.core@8.2.0/
+Packages/com.unity.render-pipelines.universal@8.2.0/
+Packages/com.unity.render-pipelines.core/
+Packages/com.unity.render-pipelines.universal/
+Packages/com.unity.render-pipelines.core@10.2.0/
+Packages/com.unity.render-pipelines.universal@10.2.2/
+Packages/com.unity.render-pipelines.core@10.2.2/
+.idea/
+*.dwlt
+Assets/AssetStore/
