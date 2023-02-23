@@ -1,0 +1,41 @@
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "",
+        "m_EditorClassIdentifier": "Unity.Formats.Fbx.Editor:UnityEditor.Formats.Fbx.Exporter:ExportSettings",
+        "ExportOutsideProject": false,
+        "Verbose": false,
+        "launchAfterInstallation": true,
+        "HideSendToUnityMenu": true,
+        "BakeAnimation": true,
+        "showConvertToPrefabDialog": true,
+        "integrationSavePath": "D:\\Ren\\Source Code\\Github\\URP_Graphic",
+        "selectedDCCApp": 0,
+        "prefabSavePaths": [
+            "."
+        ],
+        "fbxSavePaths": [
+            "MMD.Asset/Model/KizunaAi/MMDExport",
+            "."
+        ],
+        "selectedFbxPath": 1,
+        "selectedPrefabPath": 0,
+        "dccOptionNames": [],
+        "dccOptionPaths": [],
+        "exportModelSettingsSerialize": {
+            "exportFormat": 1,
+            "animatedSkinnedMesh": false,
+            "mayaCompatibleNaming": true,
+            "include": 0,
+            "lodLevel": 1,
+            "objectPosition": 1,
+            "exportUnrendered": true
+        },
+        "convertToPrefabSettingsSerialize": {
+            "exportFormat": 1,
+            "animatedSkinnedMesh": false,
+            "mayaCompatibleNaming": false
+        }
+    }
+}

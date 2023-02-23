@@ -1,0 +1,19 @@
+{
+    "name": "InstanceDrawerEditor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6ca67534b0b6f3d4c820a5ee36f484d2",
+        "GUID:3ec8bca9e80485e44991ae066bd75f25"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
