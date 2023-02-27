@@ -10,8 +10,7 @@ using UnityEngine;
 
 namespace RenLib
 {
-
-    public partial class IconMiner
+    public class IconMiner
     {
         private const string folderLocation = "Packages/RenLib/Editor/#AutoGenerate/";
         const string scriptFileName = "UnityEditorIcon.cs";
