@@ -190,4 +190,4 @@ MonoBehaviour:
   m_Name: PostProcess
   m_EditorClassIdentifier: 
   m_Active: 1
-  config: {fileID: 11400000, guid: 1b81611e29ec8cc449ec49a563a8d956, type: 2}
+  config: {fileID: 11400000, guid: 7c2fa784dfeacac49afc02977a588c99, type: 2}

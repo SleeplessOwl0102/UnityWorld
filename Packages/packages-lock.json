@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.jasonma.lwgui": {
+      "version": "https://github.com/JasonMa0012/LWGUI.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "f8731cfeadeeaa66e37b9af814e358ab1398b50c"
+    },
     "com.renlai.editorcore": {
       "version": "file:RenLai.EditorCore",
       "depth": 0,
