@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Demo/Deemo/DemoScene.unity
+    path: Assets/Demo/Sea of Flowers/DemoScene.unity
     guid: 01b85b5e2e584a44b958baaee6d2af7e
   - enabled: 0
     path: Assets/Demo/Raymarch/PostEffctFog.unity
