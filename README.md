@@ -1,3 +1,5 @@
+Various attempts and exercises in Unity-based environment rendering, the code is not very clean.
+
 # Feature
 
 * Volumtric Clound & Fog
