@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.autodesk.fbx": {
+      "version": "4.2.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.jasonma.lwgui": {
       "version": "https://github.com/JasonMa0012/LWGUI.git",
       "depth": 0,
@@ -14,7 +21,7 @@
       "dependencies": {}
     },
     "com.unity.burst": {
-      "version": "1.8.3",
+      "version": "1.8.8",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -56,8 +63,18 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.formats.fbx": {
+      "version": "4.2.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.timeline": "1.7.1",
+        "com.autodesk.fbx": "4.2.1"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.ide.rider": {
-      "version": "3.0.18",
+      "version": "3.0.24",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -66,7 +83,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.17",
+      "version": "2.0.18",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -82,7 +99,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.inputsystem": {
-      "version": "1.5.0",
+      "version": "1.6.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -114,7 +131,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.polybrush": {
-      "version": "1.1.3",
+      "version": "1.1.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -123,7 +140,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.core": {
-      "version": "14.0.6",
+      "version": "14.0.8",
       "depth": 1,
       "source": "builtin",
       "dependencies": {
@@ -134,14 +151,14 @@
       }
     },
     "com.unity.render-pipelines.universal": {
-      "version": "14.0.6",
+      "version": "14.0.8",
       "depth": 0,
       "source": "builtin",
       "dependencies": {
         "com.unity.mathematics": "1.2.1",
-        "com.unity.burst": "1.8.2",
-        "com.unity.render-pipelines.core": "14.0.6",
-        "com.unity.shadergraph": "14.0.6"
+        "com.unity.burst": "1.8.4",
+        "com.unity.render-pipelines.core": "14.0.8",
+        "com.unity.shadergraph": "14.0.8"
       }
     },
     "com.unity.searcher": {
@@ -159,16 +176,16 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.shadergraph": {
-      "version": "14.0.6",
+      "version": "14.0.8",
       "depth": 1,
       "source": "builtin",
       "dependencies": {
-        "com.unity.render-pipelines.core": "14.0.6",
+        "com.unity.render-pipelines.core": "14.0.8",
         "com.unity.searcher": "4.9.2"
       }
     },
     "com.unity.splines": {
-      "version": "2.1.0",
+      "version": "2.4.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -200,7 +217,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.7.3",
+      "version": "1.7.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {

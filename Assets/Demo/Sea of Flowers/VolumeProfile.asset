@@ -34,7 +34,7 @@ MonoBehaviour:
     m_Value: 0.01
   StrengthPow:
     m_OverrideState: 1
-    m_Value: 300
+    m_Value: 1000
 --- !u!114 &-5539400520836350456
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -59,7 +59,7 @@ MonoBehaviour:
     m_Value: {r: 1, g: 1, b: 1, a: 1}
   hueShift:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 18
   saturation:
     m_OverrideState: 0
     m_Value: 0
@@ -95,6 +95,9 @@ MonoBehaviour:
   m_Name: Bloom
   m_EditorClassIdentifier: 
   active: 0
+  skipIterations:
+    m_OverrideState: 1
+    m_Value: 1
   threshold:
     m_OverrideState: 1
     m_Value: 0.9
@@ -113,12 +116,16 @@ MonoBehaviour:
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0
-  skipIterations:
-    m_OverrideState: 1
-    m_Value: 1
+  downscale:
+    m_OverrideState: 0
+    m_Value: 0
+  maxIterations:
+    m_OverrideState: 0
+    m_Value: 6
   dirtTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
+    dimension: 1
   dirtIntensity:
     m_OverrideState: 0
     m_Value: 0
@@ -163,10 +170,10 @@ MonoBehaviour:
     m_Value: 0
   _Density:
     m_OverrideState: 1
-    m_Value: 170
+    m_Value: 300
   _Radius:
     m_OverrideState: 1
-    m_Value: 0.4
+    m_Value: 0.3
   _SmoothEdge:
     m_OverrideState: 1
     m_Value: 0.7
@@ -181,7 +188,7 @@ MonoBehaviour:
     m_Value: 1
   _PointColor:
     m_OverrideState: 1
-    m_Value: {r: 0.2830189, g: 0.2193986, b: 0.08917764, a: 1}
+    m_Value: {r: 0.745283, g: 0.50544345, b: 0.23553754, a: 1}
   _ColorFactor:
     m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -203,7 +210,7 @@ MonoBehaviour:
     m_Value: 2
   intensity:
     m_OverrideState: 1
-    m_Value: 0.121
+    m_Value: 0.602
   response:
     m_OverrideState: 1
     m_Value: 0.043
@@ -291,6 +298,9 @@ MonoBehaviour:
   m_Name: Bloom
   m_EditorClassIdentifier: 
   active: 1
+  skipIterations:
+    m_OverrideState: 0
+    m_Value: 1
   threshold:
     m_OverrideState: 0
     m_Value: 0.9
@@ -309,12 +319,16 @@ MonoBehaviour:
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0
-  skipIterations:
+  downscale:
     m_OverrideState: 0
-    m_Value: 1
+    m_Value: 0
+  maxIterations:
+    m_OverrideState: 0
+    m_Value: 6
   dirtTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
+    dimension: 1
   dirtIntensity:
     m_OverrideState: 0
     m_Value: 0
@@ -352,7 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01700fd266d6914ababb731e09af2eb, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   mode:
     m_OverrideState: 1
     m_Value: 2
@@ -376,7 +390,7 @@ MonoBehaviour:
     m_Value: 3
   focalLength:
     m_OverrideState: 1
-    m_Value: 50
+    m_Value: 35
   bladeCount:
     m_OverrideState: 1
     m_Value: 5
