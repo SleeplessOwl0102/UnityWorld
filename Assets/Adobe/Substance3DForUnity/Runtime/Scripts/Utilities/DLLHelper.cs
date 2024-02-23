@@ -129,7 +129,7 @@ namespace Adobe.Substance
         {
             return (Application.platform == RuntimePlatform.LinuxEditor
                     || Application.platform == RuntimePlatform.LinuxPlayer
-                    || Application.platform == RuntimePlatform.CloudRendering);
+                    || Application.platform == RuntimePlatform.LinuxHeadlessSimulation);
         }
     }
 }

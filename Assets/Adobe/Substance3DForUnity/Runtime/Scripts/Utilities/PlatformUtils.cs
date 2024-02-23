@@ -18,7 +18,7 @@ namespace Adobe.Substance
         {
             if (Application.platform == RuntimePlatform.LinuxEditor
                     || Application.platform == RuntimePlatform.LinuxPlayer
-                    || Application.platform == RuntimePlatform.CloudRendering)
+                    || Application.platform == RuntimePlatform.LinuxHeadlessSimulation)
             {
                 return false;
             }
@@ -80,7 +80,7 @@ namespace Adobe.Substance
         {
             if (Application.platform == RuntimePlatform.LinuxEditor
                     || Application.platform == RuntimePlatform.LinuxPlayer
-                    || Application.platform == RuntimePlatform.CloudRendering)
+                    || Application.platform == RuntimePlatform.LinuxHeadlessSimulation)
             {
                 return "libsubstance_ogl3_blend.so";
             }
@@ -110,7 +110,7 @@ namespace Adobe.Substance
 
                 case RuntimePlatform.LinuxPlayer:
                 case RuntimePlatform.LinuxEditor:
-                case RuntimePlatform.CloudRendering:
+                case RuntimePlatform.LinuxHeadlessSimulation:
                     return "libsbsario.so";
 
                 case RuntimePlatform.WindowsPlayer:
